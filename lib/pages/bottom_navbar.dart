@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+import 'package:food_delivery/pages/home_page.dart';
+
+class BottomNavBarPage extends StatefulWidget {
+  const BottomNavBarPage({super.key});
+
+  @override
+  State<BottomNavBarPage> createState() => _BottomNavBarPageState();
+}
+
+class _BottomNavBarPageState extends State<BottomNavBarPage> {
+  int _selectedIndex = 0;
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = 0;
+  }
+
+  void _onTappedIndex(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  List<Widget> bodyChildern = [
+    HomePage(),
+    Center(child: Text("Favourite Page")),
+    Center(child: Text("Profile")),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blue),
+              child: Text("Menu", style: TextStyle(color: Colors.white)),
+            ),
+            ListTile(leading: Icon(Icons.message), title: Text("Messages")),
+            ListTile(leading: Icon(Icons.settings), title: Text("Settings")),
+
+            ListTile(leading: Icon(Icons.person), title: Text("Profile")),
+          ],
+        ),
+      ),
+
+      appBar: AppBar(
+        title: Text("Foodak"),
+        backgroundColor: Colors.grey[200],
+        centerTitle: true,
+      ),
+
+      body: bodyChildern[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: "Favorite",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onTappedIndex,
+        selectedItemColor: Colors.deepOrange,
+      ),
+    );
+  }
+}

@@ -2,8 +2,28 @@ class FoodItem {
   final String name;
   final String imgUrl;
   final double price;
+  final bool isFavourite;
 
-  FoodItem({required this.name, required this.imgUrl, required this.price});
+  FoodItem({
+    required this.name,
+    required this.imgUrl,
+    required this.price,
+    this.isFavourite = false,
+  });
+
+  FoodItem copyWith({
+    String? name,
+    String? imgUrl,
+    double? price,
+    bool? isFavourite,
+  }) {
+    return FoodItem(
+      name: name ?? this.name,
+      imgUrl: imgUrl ?? this.imgUrl,
+      price: price ?? this.price,
+      isFavourite: isFavourite ?? this.isFavourite, 
+    ); 
+  }
 }
 
 List<FoodItem> food = [
@@ -14,7 +34,7 @@ List<FoodItem> food = [
     price: 5.5,
   ),
   FoodItem(
-    name: "Classic Burger",
+    name: "Beef Burger",
     imgUrl:
         "https://carlsjr.com.my/wp-content/uploads/2020/08/classic-burger-with-cheese-2.png",
     price: 5.5,

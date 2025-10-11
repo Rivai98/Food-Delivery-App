@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/models/food_model.dart';
 
 class FoodGridItem extends StatefulWidget {
-  final int foodIndex; 
+  final int foodIndex;
   const FoodGridItem({super.key, required this.foodIndex});
 
   @override
@@ -29,7 +29,7 @@ class _FoodGridItemState extends State<FoodGridItem> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10.0),
                   child: Image.network(
-                   food[widget.foodIndex].imgUrl ,
+                    food[widget.foodIndex].imgUrl,
                     width: 100,
                     height: 100.0,
                   ),
@@ -38,7 +38,10 @@ class _FoodGridItemState extends State<FoodGridItem> {
                   onTap:
                       () => {
                         setState(() {
-                          food[widget.foodIndex]= food[widget.foodIndex].copyWith(isFavourite: !food[widget.foodIndex].isFavourite) ;
+                          food[widget
+                              .foodIndex] = food[widget.foodIndex].copyWith(
+                            isFavourite: !food[widget.foodIndex].isFavourite,
+                          );
                         }),
                       },
                   child: Align(
@@ -47,7 +50,7 @@ class _FoodGridItemState extends State<FoodGridItem> {
                       food[widget.foodIndex].isFavourite
                           ? Icons.favorite
                           : Icons.favorite_border,
-                      color: Colors.deepOrange,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                 ),
@@ -61,7 +64,7 @@ class _FoodGridItemState extends State<FoodGridItem> {
             SizedBox(height: 3.0),
             Text(
               "\$ ${food[widget.foodIndex].price}",
-              style: TextStyle(color: Colors.deepOrange),
+              style: TextStyle(color: Theme.of(context).primaryColor),
             ),
           ],
         ),

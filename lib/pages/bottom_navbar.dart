@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/pages/favorite_page.dart';
 import 'package:food_delivery/pages/home_page.dart';
+import 'package:food_delivery/pages/profile_page.dart';
 
 class BottomNavBarPage extends StatefulWidget {
   const BottomNavBarPage({super.key});
@@ -23,21 +24,17 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
     });
   }
 
-  List<Widget> bodyChildern = [
-    HomePage(),
-    FavoritePage(),
-    Center(child: Text("Profile")),
-  ];
+  List<Widget> bodyChildern = [HomePage(), FavoritePage(), AccountPage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      /* backgroundColor: Colors.grey[200], */
       drawer: Drawer(
         child: ListView(
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
+              decoration: BoxDecoration(color: Theme.of(context).primaryColor),
               child: Text("Menu", style: TextStyle(color: Colors.white)),
             ),
             ListTile(leading: Icon(Icons.message), title: Text("Messages")),
@@ -48,11 +45,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
         ),
       ),
 
-      appBar: AppBar(
-        title: Text("Foodak"),
-        backgroundColor: Colors.grey[200],
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: Text("Foodak"), centerTitle: true),
 
       body: bodyChildern[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -66,7 +59,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onTappedIndex,
-        selectedItemColor: Colors.deepOrange,
+        /* selectedItemColor: Theme.of(context).primaryColor, */
       ),
     );
   }

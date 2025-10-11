@@ -12,6 +12,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
+      theme: ThemeData(
+        fontFamily: 'Space Grotesk',
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+        primaryColor: Colors.deepOrange,
+        drawerTheme: DrawerThemeData(
+          backgroundColor: Colors.white,
+          surfaceTintColor: Colors.deepOrange,
+        ),
+        appBarTheme: AppBarTheme(backgroundColor: Colors.grey[200]),
+        scaffoldBackgroundColor: Colors.grey[200],
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: Colors.deepOrange,
+        ),
+      ),
       home: BottomNavBarPage(),
     );
   }

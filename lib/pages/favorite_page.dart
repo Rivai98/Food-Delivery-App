@@ -65,7 +65,7 @@ class _FavoritePageState extends State<FavoritePage> {
                             "\$ ${filteredFoodItem[index].price}",
                             style: TextStyle(
                               fontSize: 16.0,
-                              color: Colors.deepOrange,
+                              color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -82,7 +82,7 @@ class _FavoritePageState extends State<FavoritePage> {
                         });
                       },
 
-                      color: Colors.deepOrange,
+                      color: Theme.of(context).primaryColor,
                       icon: Icon(Icons.favorite),
                       iconSize: 30,
                     ),

@@ -13,8 +13,9 @@ class _FoodGridItemState extends State<FoodGridItem> {
   bool isFav = false;
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
-      height: 100,
+      height: size.height * 0.5,
       decoration: BoxDecoration(
         color: Colors.white,
 
@@ -30,8 +31,8 @@ class _FoodGridItemState extends State<FoodGridItem> {
                   borderRadius: BorderRadius.circular(10.0),
                   child: Image.network(
                     food[widget.foodIndex].imgUrl,
-                    width: 100,
-                    height: 100.0,
+                    width: size.width * 0.5,
+                    height: size.height * 0.10,
                   ),
                 ),
                 InkWell(
@@ -58,13 +59,18 @@ class _FoodGridItemState extends State<FoodGridItem> {
             ),
             Text(
               food[widget.foodIndex].name,
+              textScaler: TextScaler.linear(1.2),
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
 
-            SizedBox(height: 3.0),
+            SizedBox(height: size.height * 0.01),
             Text(
               "\$ ${food[widget.foodIndex].price}",
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              textScaler: TextScaler.linear(1),
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),

@@ -5,6 +5,7 @@ class AccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -12,7 +13,7 @@ class AccountPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
             child: Center(
               child: CircleAvatar(
-                radius: 100,
+                radius: size.width * 0.3,
                 backgroundImage: AssetImage("assets/images/omar.png"),
               ),
             ),
@@ -20,6 +21,7 @@ class AccountPage extends StatelessWidget {
 
           Text(
             "Omar Abd El Nasser Ahmed",
+            textScaler: TextScaler.linear(1.2),
             style: TextStyle(fontSize: 25.0, fontFamily: 'Pacifico'),
           ),
           const SizedBox(height: 10.0),

@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
 
                 child: Image.asset(
                   "assets/images/classic_burger.jpg",
-                  height: size.height * 0.23,
+                  height: size.height * 0.25,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
@@ -33,8 +33,9 @@ class HomePage extends StatelessWidget {
                 itemCount: food.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 10.0,
-                  mainAxisSpacing: 20,
+                  crossAxisSpacing: size.width * 0.02,
+                  mainAxisSpacing: size.height * 0.02,
+                  
                 ),
                 itemBuilder: (context, index) => FoodGridItem(foodIndex: index),
               ),

@@ -14,13 +14,25 @@ class _FavoritePageState extends State<FavoritePage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     if (filteredFoodItem.isEmpty) {
-      return Center(
-        child: Column(
-          children: [
-            Image.asset("assets/images/empty_state.png"),
-            Text("No Favorite Items Found", style: TextStyle(fontSize: 20)),
-          ],
+      return SingleChildScrollView(
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/empty_state.png",
+                width: size.width * 0.8,
+              ),
+              Text(
+                "No Favorite Items Found",
+                textScaler: TextScaler.linear(1.2),
+                style: TextStyle(fontSize: 24.0),
+              ),
+            ],
+          ),
         ),
       );
     }
@@ -43,11 +55,11 @@ class _FavoritePageState extends State<FavoritePage> {
                   children: [
                     Image.network(
                       filteredFoodItem[index].imgUrl,
-                      height: 100,
-                      width: 100,
+                      height: size.height * 0.1,
+                      width: size.height * 0.1,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10.0),
+                    SizedBox(width: size.width * 0.01),
 
                     Expanded(
                       child: Column(
@@ -84,7 +96,7 @@ class _FavoritePageState extends State<FavoritePage> {
 
                       color: Theme.of(context).primaryColor,
                       icon: Icon(Icons.favorite),
-                      iconSize: 30,
+                      iconSize: size.width * 0.07,
                     ),
                   ],
                 ),

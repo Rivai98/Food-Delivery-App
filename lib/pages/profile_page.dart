@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class AccountPage extends StatelessWidget {
-  Widget textName = Text(
+  final Widget textName = Text(
     "Omar Abd El Nasser Ahmed",
     textScaler: TextScaler.linear(1.2),
     style: TextStyle(fontSize: 25.0, fontFamily: 'Pacifico'),

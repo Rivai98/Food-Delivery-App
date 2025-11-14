@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/food_model.dart';
+import 'package:food_delivery/pages/food_details.dart';
 import 'package:food_delivery/widgets/food_grid_item.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,7 +44,19 @@ class HomePage extends StatelessWidget {
                         mainAxisSpacing: size.height * 0.02,
                       ),
                       itemBuilder:
-                          (context, index) => FoodGridItem(foodIndex: index),
+                          (context, index) => InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder:
+                                      (context) => FoodDetailsPage(
+                                        foodItem: food[index],
+                                      ),
+                                ),
+                              );
+                            },
+                            child: FoodGridItem(foodIndex: index),
+                          ),
                     ),
                   ],
                 ),

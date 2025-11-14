@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/food_model.dart';
+import 'package:food_delivery/widgets/food_favorite_icon.dart';
 
-class FoodGridItem extends StatefulWidget {
+class FoodGridItem extends StatelessWidget {
   final int foodIndex;
+
   const FoodGridItem({super.key, required this.foodIndex});
 
-  @override
-  State<FoodGridItem> createState() => _FoodGridItemState();
-}
-
-class _FoodGridItemState extends State<FoodGridItem> {
-  bool isFav = false;
   @override
   Widget build(BuildContext context) {
     /* final size = MediaQuery.of(context).size; */
@@ -32,32 +28,15 @@ class _FoodGridItemState extends State<FoodGridItem> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10.0),
                       child: Image.network(
-                        food[widget.foodIndex].imgUrl,
+                        food[foodIndex].imgUrl,
                         width: constrains.maxWidth * 0.9,
                         height: constrains.maxHeight * 0.55,
                       ),
                     ),
-                    InkWell(
-                      onTap:
-                          () => {
-                            setState(() {
-                              food[widget.foodIndex] = food[widget.foodIndex]
-                                  .copyWith(
-                                    isFavourite:
-                                        !food[widget.foodIndex].isFavourite,
-                                  );
-                            }),
-                          },
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: Icon(
-                          size: constrains.maxWidth * 0.15,
-                          food[widget.foodIndex].isFavourite
-                              ? Icons.favorite
-                              : Icons.favorite_border,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      ),
+                    FoodFavoriteButton(
+                      foodIndex: foodIndex,
+                      width:constrains.maxWidth * 0.15 ,
+                      height: constrains.maxHeight * 0.07,
                     ),
                   ],
                 ),
@@ -67,7 +46,7 @@ class _FoodGridItemState extends State<FoodGridItem> {
 
                   child: FittedBox(
                     child: Text(
-                      food[widget.foodIndex].name,
+                      food[foodIndex].name,
                       textScaler: TextScaler.linear(1.2),
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
@@ -80,7 +59,7 @@ class _FoodGridItemState extends State<FoodGridItem> {
                   height: constrains.maxHeight * 0.12,
                   child: FittedBox(
                     child: Text(
-                      "\$ ${food[widget.foodIndex].price}",
+                      "\$ ${food[foodIndex].price}",
                       textScaler: TextScaler.linear(1),
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,

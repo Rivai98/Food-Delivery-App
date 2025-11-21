@@ -5,28 +5,28 @@ import 'package:food_delivery/widgets/custom_button.dart';
 class FoodFavoriteButton extends StatefulWidget {
   final int foodIndex;
   final double width;
-  final double height; 
+  final double height;
   FoodFavoriteButton({
     super.key,
     required this.foodIndex,
-    required this.width, 
-    required this.height, 
+    required this.width,
+    required this.height,
   }) {
-    debugPrint("Contructor in Favorite Button Widget");
+    /* debugPrint("Contructor in Favorite Button Widget"); */
   }
 
   @override
   State<FoodFavoriteButton> createState() {
-    debugPrint("Create State Method!");
+    /* debugPrint("Create State Method!"); */
     return _FoodFavoriteButtonState();
   }
 }
 
 class _FoodFavoriteButtonState extends State<FoodFavoriteButton> {
-  _FoodFavoriteButtonState() {
+  /* _FoodFavoriteButtonState() {
     debugPrint("Contructor Favorite Button State!");
-  }
-  @override
+  } */
+  /* @override
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -45,11 +45,11 @@ class _FoodFavoriteButtonState extends State<FoodFavoriteButton> {
     // TODO: implement dispose
     super.dispose();
     debugPrint("Dispose() called!");
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("Build Method Called!");
+    /* debugPrint("Build Method Called!"); */
     return Align(
       alignment: Alignment.topRight,
       child: CustomButton(

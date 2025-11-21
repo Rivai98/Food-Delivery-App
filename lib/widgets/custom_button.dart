@@ -28,6 +28,6 @@ class CustomButton extends StatelessWidget {
         child: Icon(icon, color: Theme.of(context).primaryColor),
       ),
     );
-    ;
+    
   }
 }

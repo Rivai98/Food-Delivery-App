@@ -21,8 +21,8 @@ class FoodItem {
       name: name ?? this.name,
       imgUrl: imgUrl ?? this.imgUrl,
       price: price ?? this.price,
-      isFavourite: isFavourite ?? this.isFavourite, 
-    ); 
+      isFavourite: isFavourite ?? this.isFavourite,
+    );
   }
 }
 
@@ -48,7 +48,7 @@ List<FoodItem> food = [
   ),
 
   FoodItem(
-    name: "Beef Burger",
+    name: "Chicken Burger",
     imgUrl:
         "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/menu_items/ae28628c3ef8fe8935302a35f33cca2a.png",
     price: 8.5,

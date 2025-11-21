@@ -1,12 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/food_model.dart';
+import 'package:food_delivery/models/ui_models/food_details_args.dart';
 import 'package:food_delivery/pages/food_details.dart';
 import 'package:food_delivery/widgets/food_grid_item.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -46,14 +52,16 @@ class HomePage extends StatelessWidget {
                       itemBuilder:
                           (context, index) => InkWell(
                             onTap: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder:
-                                      (context) => FoodDetailsPage(
-                                        foodItem: food[index],
-                                      ),
-                                ),
-                              );
+                              Navigator.of(context)
+                                  .pushNamed(
+                                    "/food-details",
+                                    arguments: FoodDetailsArgs(foodIndex: index),  
+                                    
+                                  )
+                                  .then((value) {
+                                    setState(() {});
+                                    debugPrint(value.toString());
+                                  });
                             },
                             child: FoodGridItem(foodIndex: index),
                           ),

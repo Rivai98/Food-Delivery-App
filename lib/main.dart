@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:food_delivery/pages/bottom_navbar.dart';
+import 'package:food_delivery/pages/food_details.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +25,6 @@ class MyApp extends StatelessWidget {
         ? CupertinoApp(
           debugShowCheckedModeBanner: false,
           theme: CupertinoThemeData(),
-          
         )
         : MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -44,7 +44,11 @@ class MyApp extends StatelessWidget {
               selectedItemColor: Colors.deepOrange,
             ),
           ),
-          home: BottomNavBarPage(),
+
+          routes: {
+            "/": (context) => BottomNavBarPage(),
+            "/food-details": (context) => FoodDetailsPage(),
+          },
         );
   }
 }

@@ -27,14 +27,14 @@ class _BottomNavBarPageState extends State<BottomNavBarPage>
     WidgetsBinding.instance.removeObserver(this);
   }
 
-
+/* 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     // TODO: implement didChangeAppLifecycleState
     super.didChangeAppLifecycleState(state);
 
     debugPrint(state.toString());
-  }
+  } */
 
   
   void _onTappedIndex(int index) {

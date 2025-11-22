@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/models/food_model.dart';
 import 'package:food_delivery/models/ui_models/food_details_args.dart';
 import 'package:food_delivery/pages/food_details.dart';
+import 'package:food_delivery/utilities/app_assets.dart';
 import 'package:food_delivery/widgets/food_grid_item.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: BorderRadius.circular(24.0),
 
                       child: Image.asset(
-                        "assets/images/classic_burger.jpg",
+                        AppAssets.appBanner,
                         height: _getImageHeight(constrains, isLandScape),
                         width: size.width,
                         fit: BoxFit.cover,
@@ -54,9 +55,10 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               Navigator.of(context)
                                   .pushNamed(
-                                    "/food-details",
-                                    arguments: FoodDetailsArgs(foodIndex: index),  
-                                    
+                                  FoodDetailsPage.foodDetailsRouteName,
+                                    arguments: FoodDetailsArgs(
+                                      foodIndex: index,
+                                    ),
                                   )
                                   .then((value) {
                                     setState(() {});

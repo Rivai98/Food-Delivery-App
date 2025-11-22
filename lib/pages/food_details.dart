@@ -14,12 +14,14 @@ class FoodDetailsPage extends StatelessWidget {
   final int counter = 1;
   const FoodDetailsPage({super.key});
 
+  static const String foodDetailsRouteName = "/food-details"; 
+
   @override
   Widget build(context) {
     final size = MediaQuery.of(context).size;
     final FoodDetailsArgs foodArgs =
         ModalRoute.settingsOf(context)!.arguments as FoodDetailsArgs;
-    final int foodIndex = foodArgs.foodIndex; 
+    final int foodIndex = foodArgs.foodIndex;
     return Scaffold(
       /* appBar: AppBar(), */
       body: Column(

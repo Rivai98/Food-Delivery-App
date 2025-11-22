@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:food_delivery/utilities/app_assets.dart';
 
 class AccountPage extends StatelessWidget {
   final Widget textName = Text(
@@ -134,7 +135,7 @@ Widget avatarImage(double width) {
     child: Center(
       child: CircleAvatar(
         radius: width,
-        backgroundImage: AssetImage("assets/images/omar.png"),
+        backgroundImage: AssetImage(AppAssets.profileImage),
       ),
     ),
   );

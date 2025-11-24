@@ -4,8 +4,8 @@ import 'package:food_delivery/widgets/food_favorite_icon.dart';
 
 class FoodGridItem extends StatelessWidget {
   final int foodIndex;
-
-  const FoodGridItem({super.key, required this.foodIndex});
+  
+  const FoodGridItem({super.key, required this.foodIndex,});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class FoodGridItem extends StatelessWidget {
                     ),
                     FoodFavoriteButton(
                       foodIndex: foodIndex,
-                      width:constrains.maxWidth * 0.15 ,
+                      width: constrains.maxWidth * 0.15,
                       height: constrains.maxHeight * 0.07,
                     ),
                   ],
